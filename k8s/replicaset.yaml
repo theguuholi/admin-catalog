@@ -1,0 +1,20 @@
+# apiVersion: apps/v1 # so para estudos nao usar
+# kind: ReplicaSet
+# metadata:
+#   name: javaserver
+#   labels:
+#     app: javaserver
+#     key: javaserver
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       key: javaserver
+#   template:
+#     metadata:
+#       labels:
+#         key: javaserver
+#     spec:
+#       containers:
+#         - name: javaserver
+#           image: "guuhworship/javagus:latest"
