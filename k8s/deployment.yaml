@@ -1,20 +1,20 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: javaserver
+  name: gusapp
   labels:
-    app: javaserver
-    key: javaserver
+    app: gusapp
+    key: gusapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      key: javaserver
+      key: gusapp
   template:
     metadata:
       labels:
-        key: javaserver
+        key: gusapp
     spec:
       containers:
-        - name: javaserver
+        - name: gusapp
           image: "guuhworship/javagus:latest"

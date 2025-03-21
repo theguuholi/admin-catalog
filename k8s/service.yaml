@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gusapp-service
+spec:
+  selector: #responsavel por filtrar todos os pods que vao incorporar nesse servico pega do deployment>spec>selecto>matchLabels>app>
+    app: gusapp
+  type: ClusterIP #ClusterIP, NodePORT, LoadBalancer, HeadlessServer
+  # quando fala que vai usar um NodePort, acima de 30000>32767 quando quer exibir um servico 
+  # na pratica e muito raro
+  # LoadBalancer gera um IP para acessar uma aplicacao de fora
+  ports:
+  - name: gusapp-service #nomedaporta
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+    # nodePort: 30000 #30.000~32.767
