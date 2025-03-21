@@ -1,0 +1,10 @@
+# apiVersion: v1 # so para estudos nao usar
+# kind: Pod
+# metadata:
+#   name: "javaserver"
+#   labels: #etiqueta para filtros
+#     app: "javaserver"
+# spec: #nao e so 1 container que pode rodar em 1 pod, mas pode adicionar, mas em geral e colocar 1 container por um pod
+#   containers:
+#     - name: javaserver
+#       image: "guuhworship/javagus:latest"
