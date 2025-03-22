@@ -1,4 +1,4 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gusapp
@@ -15,14 +15,35 @@ spec:
       labels:
         key: gusapp
     spec:
+      volumes:
+        - name: config
+          configMap:
+            name: gusapp-family
+            items:
+              - key: members
+                path: "family.txt"
       containers:
         - name: gusapp
-          image: "guuhworship/javagus:v1"
-          env:
-            - name: NAME
-              value: "Gustavo"
-            - name: AGE
-              value: "32"
+          image: "guuhworship/javagus:v4.1"
+          envFrom: #ler todo o configmap
+            - configMapRef:
+                name: gusapp-env
+            - secretRef:
+                name: gusapp-secret
+          volumeMounts:
+            - mountPath: "/myFamly"
+              name: config
+          # env: #tradicional
+          #   - name: NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: gusapp-env
+          #         key: NAME
+          #   - name: AGE
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: gusapp-env
+          #         key: AGE
           resources:
             limits:
               memory: "512Mi"

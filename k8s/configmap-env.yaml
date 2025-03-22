@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gusapp-env
+data:
+  NAME: "GUS"
+  AGE: "36"
