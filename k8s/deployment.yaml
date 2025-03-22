@@ -6,7 +6,7 @@ metadata:
     app: gusapp
     key: gusapp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       key: gusapp
@@ -17,4 +17,16 @@ spec:
     spec:
       containers:
         - name: gusapp
-          image: "guuhworship/javagus:latest"
+          image: "guuhworship/javagus:v1"
+          env:
+            - name: NAME
+              value: "Gustavo"
+            - name: AGE
+              value: "32"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"

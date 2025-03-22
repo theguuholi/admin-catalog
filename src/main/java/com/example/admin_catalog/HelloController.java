@@ -9,7 +9,9 @@ public class HelloController {
     
     @GetMapping("/")
     public String hi() {
-        return "Hello!!";
+        String name = System.getenv("NAME");
+        String age = System.getenv("AGE");
+        return "Hello, I am " + name + "I`m " + age;
     }
     
 }
